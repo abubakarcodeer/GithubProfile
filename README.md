@@ -1,16 +1,121 @@
-# React + Vite
+# Async State Management with Redux Thunk & RTK Query
+## Project Overview
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project demonstrates async state management in React using Redux Toolkit, combining both:
 
-Currently, two official plugins are available:
+- Redux Thunk → for custom async logic and side effects
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- RTK Query → for efficient data fetching, caching, and automatic state management
 
-## React Compiler
+The app fetches GitHub user profile data using the GitHub REST API and displays user details like avatar, name, and bio.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## Objectives
 
-## Expanding the ESLint configuration
+- Learn how to manage async state using Redux Thunk
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Understand RTK Query for API calls and caching
+
+- Integrate both Thunk and RTK Query in a single Redux store
+
+- Handle loading, error, and empty input states properly
+
+## Tech Stack
+
+- React
+
+- Redux Toolkit
+
+- Redux Thunk
+
+- RTK Query
+
+- Axios
+
+- GitHub REST API
+
+## 📂 Project Structure
+src/
+├─ app/
+│   └─ store.js                # Redux store configuration
+│
+├─ features/
+│   ├─ githubThunk/
+│   │   └─ githubSlice.js      # Redux Thunk async logic
+│   │
+│   └─ githubRTKQuery/
+│       └─ githubApi.js        # RTK Query API slice
+│
+├─ components/
+│   └─ Profile.js              # UI component using both Thunk & RTK Query
+│
+├─ App.js
+└─ index.js
+
+## (Optional but Recommended) GitHub API Token
+
+- GitHub limits unauthenticated requests to 60/hour.
+
+- Create a .env file in the root directory:
+
+- REACT_APP_GITHUB_TOKEN=your_personal_access_token
+
+## How Async State Management Works
+### Redux Thunk
+
+- Handles manual async logic
+
+- Useful for:
+
+- Logging
+
+- Pre-processing data
+
+- Custom error handling
+
+- Uses createAsyncThunk
+
+### Example:
+
+- dispatch(fetchUserWithLog(username));
+
+### RTK Query
+
+- Handles API fetching + caching automatically
+
+- Reduces boilerplate
+
+- Prevents unnecessary refetching
+
+### Example:
+
+const { data, isLoading } = useGetUserQuery(username, {
+  skip: !username
+});
+
+## Combined Flow (Important)
+
+- User enters a GitHub username
+
+### On Search:
+
+- Redux Thunk fetches user data (custom async logic)
+
+- RTK Query fetches and caches user data
+
+### UI updates based on:
+
+- loading
+
+- error
+
+- data
+
+No API call is made if input is empty
+
+## Key Features
+
+-  Uses Redux Thunk + RTK Query together
+-  Prevents API calls on empty input
+-  Handles loading & error states
+-  GitHub API integration
+-  Clean and modular structure
