@@ -1,7 +1,7 @@
 import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
-const token = "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";
+const token = ""; // Add Github Token
 
 // Thunk for logging or additional async logic
 export const fetchUserWithLog = createAsyncThunk(
