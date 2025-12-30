@@ -33,24 +33,6 @@ The app fetches GitHub user profile data using the GitHub REST API and displays 
 
 - GitHub REST API
 
-## 📂 Project Structure
-src/
-├─ app/
-│   └─ store.js                # Redux store configuration
-│
-├─ features/
-│   ├─ githubThunk/
-│   │   └─ githubSlice.js      # Redux Thunk async logic
-│   │
-│   └─ githubRTKQuery/
-│       └─ githubApi.js        # RTK Query API slice
-│
-├─ components/
-│   └─ Profile.js              # UI component using both Thunk & RTK Query
-│
-├─ App.js
-└─ index.js
-
 ## (Optional but Recommended) GitHub API Token
 
 - GitHub limits unauthenticated requests to 60/hour.
