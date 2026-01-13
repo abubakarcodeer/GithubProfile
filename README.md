@@ -9,6 +9,9 @@ This project demonstrates async state management in React using Redux Toolkit, c
 
 The app fetches GitHub user profile data using the GitHub REST API and displays user details like avatar, name, and bio.
 
+## Live Demo
+Check it out here: [🌐 Live Project](https://githprof.netlify.app)
+
 ## Objectives
 
 - Learn how to manage async state using Redux Thunk
