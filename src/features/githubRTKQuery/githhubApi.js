@@ -4,7 +4,7 @@ export const githubApi = createApi({
   reducerPath: "githubApi",
   baseQuery: fetchBaseQuery({ baseUrl: "https://api.github.com/",
      prepareHeaders: (headers) => {
-    headers.set("Authorization", `token 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`);
+    headers.set("Authorization", ``); // add token
     return headers;
      }
    }),
